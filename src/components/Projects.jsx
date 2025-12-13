@@ -60,13 +60,13 @@ export default function Projects() {
           {/* Projects Grid - Responsive based on number of projects */}
           <motion.div 
             layout 
-            className={`grid gap-8 ${
-              filteredProjects.length === 1 
-                ? 'md:grid-cols-1 max-w-xl mx-auto' 
-                : filteredProjects.length === 2 
-                ? 'md:grid-cols-2 max-w-4xl mx-auto' 
-                : 'md:grid-cols-2 lg:grid-cols-3'
-            }`}
+            className={`grid gap-4 md:gap-6 lg:gap-8 ${
+  filteredProjects.length === 1 
+    ? 'grid-cols-1 max-w-xl mx-auto' 
+    : filteredProjects.length === 2 
+    ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto' 
+    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+}`}
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (

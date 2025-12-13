@@ -66,7 +66,7 @@ export default function About() {
                   <img
                     src={images.aboutPhoto || images.profilePhoto}
                     alt={personalInfo.name}
-                    className="w-full h-[450px] sm:h-[500px] object-cover object-top"
+                   className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover object-top"
                     onError={(e) => {
                       e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face';
                     }}

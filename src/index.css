@@ -335,3 +335,137 @@
     display: none;
   }
 }
+/* ============================================================
+   📱 MOBILE RESPONSIVENESS FIXES
+   ============================================================ */
+
+/* Mobile Animation Fixes */
+@media (max-width: 768px) {
+  /* Enable animations on mobile */
+  .orb {
+    display: block !important;
+    opacity: 0.3;
+  }
+  
+  /* Reduce orb sizes on mobile */
+  .orb-purple,
+  .orb-cyan,
+  .orb-pink {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  /* Fix profile image on mobile */
+  .profile-image-container {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  /* Improve text readability */
+  .text-gradient,
+  .text-gradient-animated {
+    background-size: 200% 200%;
+  }
+  
+  /* Fix glass card on mobile */
+  .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* Reduce padding on mobile */
+  .section-padding {
+    @apply py-12 px-4;
+  }
+  
+  /* Fix button sizes */
+  .btn-primary,
+  .btn-secondary {
+    @apply px-4 py-2.5 text-sm;
+  }
+}
+
+/* Small Mobile (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  /* Smaller profile image */
+  .profile-image-container {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  
+  /* Smaller headings */
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Stack buttons vertically */
+  .flex-col-mobile {
+    flex-direction: column !important;
+  }
+  
+  /* Full width buttons on small screens */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .section-padding {
+    @apply py-16 px-6;
+  }
+}
+
+/* Fix iOS Safari Issues */
+@supports (-webkit-touch-callout: none) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .bg-cyber,
+  .bg-cyber-dark {
+    background-attachment: scroll;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .orb {
+    animation: none !important;
+  }
+}
+
+/* Fix image loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix touch targets for mobile */
+@media (max-width: 768px) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
