@@ -1,42 +1,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  HiMail,
-  HiPhone,
-  HiLocationMarker,
-  HiPaperAirplane,
-} from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from 'react-icons/fa';
+import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
+import { personalInfo, socialLinks, contactInfo } from '../data/portfolioData';
 
-const contactInfo = [
-  {
-    icon: HiMail,
-    label: 'Email',
-    value: 'john@example.com',
-    href: 'mailto:john@example.com',
-  },
-  {
-    icon: HiPhone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: HiLocationMarker,
-    label: 'Location',
-    value: 'San Francisco, CA',
-    href: '#',
-  },
-];
-
-const socialLinks = [
-  { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: FaDribbble, href: 'https://dribbble.com', label: 'Dribbble' },
-];
+// Icon mapping
+const iconMap = {
+  HiMail: HiMail,
+  HiPhone: HiPhone,
+  HiLocationMarker: HiLocationMarker,
+};
 
 export default function Contact() {
   const { darkMode } = useTheme();
@@ -64,8 +38,6 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    // Replace with actual EmailJS or Formspree integration
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setSubmitStatus('success');
@@ -80,11 +52,8 @@ export default function Contact() {
 
   const inputClasses = (fieldName) => `
     w-full px-4 py-4 rounded-xl outline-none transition-all duration-300
-    ${
-      darkMode
-        ? 'bg-dark-100 text-white border-2 border-dark-100 focus:border-primary-500'
-        : 'bg-gray-50 text-gray-900 border-2 border-gray-100 focus:border-primary-500'
-    }
+    bg-white/5 text-white border border-white/10 
+    focus:border-primary-500 focus:bg-primary-500/5
     ${focusedField === fieldName || formData[fieldName] ? 'pt-6 pb-2' : ''}
   `;
 
@@ -92,15 +61,15 @@ export default function Contact() {
     absolute left-4 transition-all duration-300 pointer-events-none
     ${
       focusedField === fieldName || formData[fieldName]
-        ? 'top-2 text-xs text-primary-500'
-        : 'top-4 text-base ' + (darkMode ? 'text-gray-400' : 'text-gray-500')
+        ? 'top-2 text-xs text-primary-400'
+        : 'top-4 text-base text-gray-500'
     }
   `;
 
   return (
     <section
       id="contact"
-      className={`section-padding ${darkMode ? 'bg-dark-300' : 'bg-gray-50'}`}
+      className="section-padding bg-cyber-dark"
     >
       <div className="container-custom">
         <motion.div
@@ -116,121 +85,74 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
-              <span className={darkMode ? 'text-white' : 'text-gray-900'}>
-                Get In{' '}
-              </span>
+              <span className="text-white">Get In </span>
               <span className="text-gradient">Touch</span>
             </h2>
-            <p
-              className={`max-w-2xl mx-auto ${
-                darkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}
-            >
-              Have a project in mind or just want to say hello? Feel free to
-              reach out. I'd love to hear from you!
+            <p className="max-w-2xl mx-auto text-gray-400">
+              Have a project in mind or just want to say hello? Feel free to reach out!
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-5 gap-12">
-            {/* Contact Info */}
+            {/* Contact Info - Left Side */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <h3
-                className={`text-2xl font-display font-bold mb-6 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}
-              >
+              <h3 className="text-2xl font-display font-bold mb-6 text-white">
                 Let's talk about your project
               </h3>
-              <p
-                className={`mb-8 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
-              >
-                I'm currently available for freelance work and full-time
-                opportunities. If you have a project that needs some creative
-                touch, I'd love to hear about it.
+              <p className="mb-8 text-gray-400">
+                I'm currently available for internships and freelance work. 
+                If you have a project that needs some creative touch, I'd love to hear about it.
               </p>
 
-              {/* Contact Info Cards */}
+              {/* Contact Info Cards - From portfolioData.js */}
               <div className="space-y-4 mb-8">
-                {contactInfo.map((item, index) => (
-                  <motion.a
-                    key={item.label}
-                    href={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={
-                      inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                    }
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    whileHover={{ x: 10 }}
-                    className={`flex items-center gap-4 p-4 rounded-xl transition-colors ${
-                      darkMode
-                        ? 'bg-dark-100 hover:bg-dark-100/80'
-                        : 'bg-white hover:bg-gray-50 shadow-sm'
-                    }`}
-                  >
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        darkMode ? 'bg-primary-500/20' : 'bg-primary-100'
-                      }`}
+                {contactInfo.map((item, index) => {
+                  const IconComponent = iconMap[item.icon];
+                  return (
+                    <motion.a
+                      key={item.label}
+                      href={item.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      whileHover={{ x: 10 }}
+                      className="flex items-center gap-4 p-4 rounded-xl glass-card transition-all duration-300"
                     >
-                      <item.icon
-                        className={`w-6 h-6 ${
-                          darkMode ? 'text-primary-400' : 'text-primary-600'
-                        }`}
-                      />
-                    </div>
-                    <div>
-                      <p
-                        className={`text-sm ${
-                          darkMode ? 'text-gray-500' : 'text-gray-400'
-                        }`}
-                      >
-                        {item.label}
-                      </p>
-                      <p
-                        className={`font-medium ${
-                          darkMode ? 'text-white' : 'text-gray-900'
-                        }`}
-                      >
-                        {item.value}
-                      </p>
-                    </div>
-                  </motion.a>
-                ))}
+                      <div className="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center">
+                        {IconComponent && <IconComponent className="w-6 h-6 text-primary-400" />}
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">{item.label}</p>
+                        <p className="font-medium text-white">{item.value}</p>
+                      </div>
+                    </motion.a>
+                  );
+                })}
               </div>
 
               {/* Social Links */}
               <div>
-                <p
-                  className={`text-sm mb-4 ${
-                    darkMode ? 'text-gray-500' : 'text-gray-400'
-                  }`}
-                >
+                <p className="text-sm mb-4 text-gray-500">
                   Follow me on social media
                 </p>
                 <div className="flex gap-3">
                   {socialLinks.map((social, index) => (
                     <motion.a
-                      key={social.label}
-                      href={social.href}
+                      key={social.name}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, y: 20 }}
-                      animate={
-                        inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                      }
+                      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                       transition={{ delay: 0.5 + index * 0.1 }}
                       whileHover={{ y: -5, scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                        darkMode
-                          ? 'bg-dark-100 text-gray-400 hover:text-primary-400 hover:bg-primary-500/20'
-                          : 'bg-white text-gray-600 hover:text-primary-600 hover:bg-primary-50 shadow-sm'
-                      }`}
+                      className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-primary-400 transition-colors"
                     >
                       <social.icon size={20} />
                     </motion.a>
@@ -239,19 +161,14 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form - Right Side */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <form
-                onSubmit={handleSubmit}
-                className={`p-8 rounded-2xl ${
-                  darkMode ? 'bg-dark-200' : 'bg-white shadow-xl'
-                }`}
-              >
+              <form onSubmit={handleSubmit} className="p-8 rounded-2xl glass-card">
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   {/* Name Field */}
                   <div className="relative">
@@ -320,18 +237,11 @@ export default function Contact() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
-                    isSubmitting
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700'
-                  } text-white shadow-lg hover:shadow-primary-500/25`}
+                  className="w-full btn-primary flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <svg
-                        className="animate-spin h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
                         <circle
                           className="opacity-25"
                           cx="12"
@@ -362,7 +272,7 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 rounded-xl bg-green-500/10 text-green-500 text-center"
+                    className="mt-4 p-4 rounded-xl bg-green-500/10 text-green-400 text-center"
                   >
                     ✓ Message sent successfully! I'll get back to you soon.
                   </motion.div>
@@ -372,7 +282,7 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 rounded-xl bg-red-500/10 text-red-500 text-center"
+                    className="mt-4 p-4 rounded-xl bg-red-500/10 text-red-400 text-center"
                   >
                     ✗ Failed to send message. Please try again.
                   </motion.div>
