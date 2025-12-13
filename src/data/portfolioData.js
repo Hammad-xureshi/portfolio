@@ -39,8 +39,8 @@ export const personalInfo = {
 // 📸 IMAGES & FILES
 // ============================================================
 export const images = {
-  profilePhoto: "/images/profile.jpeg",
-  aboutPhoto: "/images/profile.jpeg",
+  profilePhoto: "/images/profile.jpg",
+  aboutPhoto: "/images/square.jpg",
   resumeFile: "/resume.pdf",
 };
 
