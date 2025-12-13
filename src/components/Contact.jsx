@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
+import emailjs from '@emailjs/browser';
 import { useTheme } from '../context/ThemeContext';
 import { personalInfo, socialLinks, contactInfo } from '../data/portfolioData';
 
@@ -12,16 +13,25 @@ const iconMap = {
   HiLocationMarker: HiLocationMarker,
 };
 
+// ============================================================
+// ⚠️ EMAILJS CREDENTIALS - Apne credentials daalein
+// ============================================================
+const EMAILJS_SERVICE_ID = "service_1kzq6u7";    // ← Step 2 se
+const EMAILJS_TEMPLATE_ID = "service_1kzq6u7";  // ← Step 3 se
+const EMAILJS_PUBLIC_KEY = "aKYJb0bv4fGZrAUau";   // ← Step 4 se
+// ============================================================
+
 export default function Contact() {
   const { darkMode } = useTheme();
+  const formRef = useRef();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     subject: '',
     message: '',
   });
@@ -37,15 +47,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // ✅ Real EmailJS send
+      const result = await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      console.log('Email sent:', result.text);
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ from_name: '', from_email: '', subject: '', message: '' });
+      
     } catch (error) {
+      console.error('Email error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+      // Auto hide message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
@@ -102,14 +124,14 @@ export default function Contact() {
               className="lg:col-span-2"
             >
               <h3 className="text-2xl font-display font-bold mb-6 text-white">
-                Let's talk about your project
+                Let's Connect
               </h3>
               <p className="mb-8 text-gray-400">
                 I'm currently available for internships and freelance work. 
                 If you have a project that needs some creative touch, I'd love to hear about it.
               </p>
 
-              {/* Contact Info Cards - From portfolioData.js */}
+              {/* Contact Info Cards */}
               <div className="space-y-4 mb-8">
                 {contactInfo.map((item, index) => {
                   const IconComponent = iconMap[item.icon];
@@ -153,6 +175,7 @@ export default function Contact() {
                       whileHover={{ y: -5, scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-primary-400 transition-colors"
+                      title={social.name}
                     >
                       <social.icon size={20} />
                     </motion.a>
@@ -168,36 +191,36 @@ export default function Contact() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <form onSubmit={handleSubmit} className="p-8 rounded-2xl glass-card">
+              <form ref={formRef} onSubmit={handleSubmit} className="p-8 rounded-2xl glass-card">
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   {/* Name Field */}
                   <div className="relative">
                     <input
                       type="text"
-                      name="name"
-                      value={formData.name}
+                      name="from_name"
+                      value={formData.from_name}
                       onChange={handleChange}
-                      onFocus={() => setFocusedField('name')}
+                      onFocus={() => setFocusedField('from_name')}
                       onBlur={() => setFocusedField(null)}
                       required
-                      className={inputClasses('name')}
+                      className={inputClasses('from_name')}
                     />
-                    <label className={labelClasses('name')}>Your Name</label>
+                    <label className={labelClasses('from_name')}>Your Name</label>
                   </div>
 
                   {/* Email Field */}
                   <div className="relative">
                     <input
                       type="email"
-                      name="email"
-                      value={formData.email}
+                      name="from_email"
+                      value={formData.from_email}
                       onChange={handleChange}
-                      onFocus={() => setFocusedField('email')}
+                      onFocus={() => setFocusedField('from_email')}
                       onBlur={() => setFocusedField(null)}
                       required
-                      className={inputClasses('email')}
+                      className={inputClasses('from_email')}
                     />
-                    <label className={labelClasses('email')}>Your Email</label>
+                    <label className={labelClasses('from_email')}>Your Email</label>
                   </div>
                 </div>
 
@@ -235,9 +258,11 @@ export default function Contact() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full btn-primary flex items-center justify-center gap-2"
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                  className={`w-full btn-primary flex items-center justify-center gap-2 ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
                   {isSubmitting ? (
                     <>
@@ -272,9 +297,9 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 rounded-xl bg-green-500/10 text-green-400 text-center"
+                    className="mt-4 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-center"
                   >
-                    ✓ Message sent successfully! I'll get back to you soon.
+                    ✅ Message sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
 
@@ -282,9 +307,9 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 rounded-xl bg-red-500/10 text-red-400 text-center"
+                    className="mt-4 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-center"
                   >
-                    ✗ Failed to send message. Please try again.
+                    ❌ Failed to send message. Please try again or email me directly.
                   </motion.div>
                 )}
               </form>

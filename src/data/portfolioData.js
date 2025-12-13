@@ -1,12 +1,12 @@
 // ============================================================
 // 🎓 HAMMAD NAEEM - PORTFOLIO DATA FILE
 // ============================================================
+import { 
+  FaReact, FaNodeJs, FaPython, FaGitAlt, FaFigma, FaHtml5, FaCss3Alt, FaJs, FaGithub, FaLinkedin, FaJava, FaInstagram
+} from 'react-icons/fa';
 
 import { 
-  FaReact, FaNodeJs, FaPython, FaGitAlt, FaFigma, FaHtml5, FaCss3Alt, FaJs, FaGithub, FaLinkedin, FaJava
-} from 'react-icons/fa';
-import { 
-  SiTypescript, SiTailwindcss, SiNextdotjs, SiMongodb, SiFirebase, SiCplusplus, SiMysql, SiFlask, SiKalilinux
+  SiTypescript, SiTailwindcss, SiNextdotjs, SiMongodb, SiFirebase, SiCplusplus, SiMysql, SiFlask, SiKalilinux, SiTryhackme, SiHackthebox
 } from 'react-icons/si';
 import { HiCode, HiBriefcase, HiAcademicCap, HiHeart, HiShieldCheck, HiBookOpen } from 'react-icons/hi';
 
@@ -42,6 +42,7 @@ export const images = {
   profilePhoto: "/images/profile.jpg",
   aboutPhoto: "/images/square.jpg",
   resumeFile: "/resume.pdf",
+  tryhackmeBadge: "/images/tryhackme-badge.png",     // ← NEW
 };
 
 // ============================================================
@@ -59,6 +60,18 @@ export const socialLinks = [
     icon: FaLinkedin,
     url: "https://www.linkedin.com/in/hammad-naeem-b5762a384/",
     color: "#0077B5",
+  },
+  {
+    name: "TryHackMe",
+    icon: SiTryhackme,
+    url: "https://tryhackme.com/p/HammadNaeem",     // ← Apna username daalein
+    color: "#212C42",
+  },
+  {
+    name: "Instagram",
+    icon: FaInstagram,
+    url: "https://www.instagram.com/hammad__qureshi110/#",     // ← Apna Instagram username daalein
+    color: "#E4405F",
   },
 ];
 

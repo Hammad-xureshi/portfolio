@@ -160,6 +160,31 @@ export default function About() {
               </motion.a>
             </motion.div>
           </div>
+                {/* TryHackMe Badge Section */}
+<motion.div
+  variants={itemVariants}
+  className="mt-12 flex flex-col items-center lg:items-start"
+>
+  <h4 className="text-lg font-display font-semibold mb-4 text-white">
+    🎮 TryHackMe Progress
+  </h4>
+  <motion.a
+    href="https://tryhackme.com/p/HammadNaeem"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ scale: 1.05 }}
+    className="rounded-xl overflow-hidden glass-card p-2"
+  >
+    <img
+      src="/images/tryhackme-badge.png"
+      alt="TryHackMe Badge"
+      className="w-full max-w-md rounded-lg"
+      onError={(e) => {
+        e.target.style.display = 'none';
+      }}
+    />
+  </motion.a>
+</motion.div>
 
           {/* Stats Section */}
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
