@@ -20,7 +20,7 @@ export const personalInfo = {
   logoInitials: "HN",
 
   role: "Cyber Security Student",
-  tagline: "Python Developer & Top 2 on TryHackMe",
+  tagline: "Python Developer & Top 3 on TryHackMe",
 
   description:
     "Cyber Security student with hands-on experience in Python, AI-powered tools, and security monitoring systems. Passionate about ethical hacking, artificial intelligence, and building intelligent applications with real-world impact.",
