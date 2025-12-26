@@ -20,7 +20,7 @@ export const personalInfo = {
   logoInitials: "HN",
 
   role: "Cyber Security Student",
-  tagline: "Python Developer & AI Enthusiast",
+  tagline: "Python Developer & Top 2 on TryHackMe",
 
   description:
     "Cyber Security student with hands-on experience in Python, AI-powered tools, and security monitoring systems. Passionate about ethical hacking, artificial intelligence, and building intelligent applications with real-world impact.",
@@ -316,7 +316,7 @@ export const navLinks = [
 // 📄 SEO & META DATA
 // ============================================================
 export const seoData = {
-  title: "Hammad Naeem | Cyber Security Student",
+  title: "Hammad Naeem | Cyber Security Student:Top 3 on tryhackme",
   description:
     "Portfolio of Hammad Naeem — Cyber Security student at QUEST University specializing in Python, AI-powered security tools, ethical hacking, and intelligent systems.",
   keywords: "hammad naeem, cyber security, python developer, quest university, ethical hacking, nawabshah, portfolio",
