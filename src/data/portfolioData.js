@@ -40,7 +40,7 @@ export const personalInfo = {
 // ============================================================
 export const images = {
   profilePhoto: "/images/profile.jpg",
-  aboutPhoto: "/images/square.jpg",
+  aboutPhoto: "/images/square.jpeg",
   resumeFile: "/resume.pdf",
   tryhackmeBadge: "/images/tryhackme-badge.png",     // ← NEW
 };
