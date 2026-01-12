@@ -198,10 +198,11 @@ export default function Experience() {
                 <h3 className={`text-2xl md:text-3xl font-display font-bold mb-2 ${
                   darkMode ? 'text-white' : 'text-gray-900'
                 }`}>
-                  📚 Courses in Progress
+                  📚 Courses Completed
                 </h3>
                 <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Currently enhancing my skills through these Udemy courses
+                  Completed Udemy courses in Cyber Security & Development
+
                 </p>
               </div>
 
@@ -235,9 +236,17 @@ export default function Experience() {
                       <span className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
                         {cert.platform}
                       </span>
-                      <span className="text-xs px-2 py-1 rounded-full bg-yellow-500/10 text-yellow-500 font-medium">
-                        {cert.status}
-                      </span>
+                       <span
+                        className={`text-xs px-2 py-1 rounded-full font-medium
+                         ${
+                            cert.status === "Completed"
+                            ? "bg-green-500/10 text-green-400"
+                              : "bg-yellow-500/10 text-yellow-500"
+                               }`}
+                                  >
+                               {cert.status}
+                              </span>
+
                     </div>
                   </motion.div>
                 ))}

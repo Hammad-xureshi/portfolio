@@ -160,31 +160,53 @@ export default function About() {
               </motion.a>
             </motion.div>
           </div>
-                {/* TryHackMe Badge Section */}
+    {/* Progress Screenshots Section */}
 <motion.div
   variants={itemVariants}
-  className="mt-12 flex flex-col items-center lg:items-start"
+  className="mt-12"
 >
-  <h4 className="text-lg font-display font-semibold mb-4 text-white">
-    🎮 TryHackMe Progress
-  </h4>
-  <motion.a
-    href="https://tryhackme.com/p/HammadNaeem"
-    target="_blank"
-    rel="noopener noreferrer"
-    whileHover={{ scale: 1.05 }}
-    className="rounded-xl overflow-hidden glass-card p-2"
+  <h4
+    className={`text-lg font-display font-semibold mb-6 ${
+      darkMode ? 'text-white' : 'text-gray-900'
+    }`}
   >
-    <img
-      src="/images/tryhackme-badge.png"
-      alt="TryHackMe Badge"
-      className="w-full max-w-md rounded-lg"
-      onError={(e) => {
-        e.target.style.display = 'none';
-      }}
-    />
-  </motion.a>
+    🎮 Platform Progress
+  </h4>
+
+  <div className="flex flex-col md:flex-row gap-6">
+    {/* TryHackMe */}
+    <motion.a
+      href="https://tryhackme.com/p/HammadNaeem"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      className={`w-full md:w-1/2 rounded-xl overflow-hidden p-2 ${
+        darkMode ? 'bg-dark-100' : 'bg-gray-50 shadow-md'
+      }`}
+    >
+      <img
+        src="/images/tryhackme-badge.png"
+        alt="TryHackMe Progress"
+        className="w-full rounded-lg"
+      />
+    </motion.a>
+
+    {/* Second Screenshot */}
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      className={`w-full md:w-1/2 rounded-xl overflow-hidden p-2 ${
+        darkMode ? 'bg-dark-100' : 'bg-gray-50 shadow-md'
+      }`}
+    >
+      <img
+        src="/images/second-progress.jpeg"
+        alt="CTF / HTB Progress"
+        className="w-full rounded-lg"
+      />
+    </motion.div>
+  </div>
 </motion.div>
+
 
           {/* Stats Section */}
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">

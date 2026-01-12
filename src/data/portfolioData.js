@@ -214,7 +214,7 @@ export const experiences = [
     description:
       "Actively enhancing skills through online courses and hands-on projects in cyber security, ethical hacking, Python development, and machine learning.",
     achievements: [
-      "8+ Udemy courses in progress",
+      "8+ Udemy courses in completed",
       "Password cracking with John the Ripper & Hashcat",
       "Social Engineering & Bug Bounty fundamentals",
       "Python web scraping & data structures",
@@ -230,49 +230,49 @@ export const certifications = [
   {
     name: "Complete Windows Password Cracking Course: Practical Guide",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🔐",
   },
   {
     name: "Password Cracking & Cryptography: John the Ripper & Hashcat",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🔑",
   },
   {
     name: "Ethically Hack Human Mind, Social Engineering Fundamentals",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🧠",
   },
   {
     name: "Introduction to Bug Bounties - Main Web App Hacking",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🐛",
   },
   {
     name: "Python Web Scraping Data Extraction with Beautiful Soup",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🕷️",
   },
   {
     name: "Implement NET Zero Trust Architecture (ZTA) Step by Step",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🛡️",
   },
   {
     name: "Data Structures and Algorithms in Python DSA Course",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "📊",
   },
   {
     name: "Practical Malware Analysis for Beginners",
     platform: "Udemy",
-    status: "In Progress",
+    status: "Certified",
     icon: "🦠",
   },
 ];
