@@ -41,7 +41,7 @@ export const personalInfo = {
 export const images = {
   profilePhoto: "/images/profile.jpg",
   aboutPhoto: "/images/square.jpeg",
-  resumeFile: "/resume.pdf",
+  resumeFile: "/resume/Hammad_Naeem_Resume.pdf",
   tryhackmeBadge: "/images/tryhackme-badge.png",     // ← NEW
 };
 
