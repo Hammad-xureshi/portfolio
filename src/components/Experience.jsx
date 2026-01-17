@@ -245,7 +245,7 @@ export default function Experience() {
                                }`}
                                   >
                                {cert.status}
-                              </span>
+                                </span>
 
                     </div>
                   </motion.div>
