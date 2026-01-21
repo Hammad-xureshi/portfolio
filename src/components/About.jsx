@@ -93,21 +93,6 @@ export default function About() {
                 >
                   <span className="text-3xl">🛡️</span>
                 </motion.div>
-
-                {/* University Badge */}
-                <motion.div
-                  initial={{ x: 50, opacity: 0 }}
-                  animate={inView ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                  className={`absolute bottom-6 -right-4 sm:-right-8 px-5 py-3 rounded-xl shadow-xl ${
-                    darkMode ? 'bg-dark-100 border border-dark-100' : 'bg-white'
-                  }`}
-                >
-                  <p className="text-lg font-bold text-gradient">{personalInfo.university}</p>
-                  <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                    {personalInfo.degree} • Class of {personalInfo.graduationYear}
-                  </p>
-                </motion.div>
               </div>
             </motion.div>
 

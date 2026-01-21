@@ -29,10 +29,6 @@ export const personalInfo = {
   availabilityStatus: "Open for Internships",
 
   email: "hammadnaeem160@gmail.com",
-
-  university: "QUEST University",
-  degree: "BS Cyber Security",
-  graduationYear: "2028",
 };
 
 // ============================================================
@@ -218,7 +214,7 @@ export const experiences = [
     type: "education",
     title: "BS Cyber Security",
     company: "QUEST University",
-    location: "Nawabshah, Pakistan",                    // ✅ Location #3
+    location: "Nawabshah, Pakistan",
     period: "2024 - 2028",
     description:
       "Pursuing Bachelor's degree in Cyber Security with focus on ethical hacking, network security, Python programming, and AI-based security systems.",

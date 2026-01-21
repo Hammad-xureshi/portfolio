@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import NetworkAnimation from './components/NetworkAnimation';
 import { useTheme } from './context/ThemeContext';
 import { testimonials } from './data/portfolioData';
 
@@ -15,18 +16,21 @@ function App() {
   const { darkMode } = useTheme();
 
   return (
-    <div className="min-h-screen bg-dark-400 text-gray-100">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        {testimonials && testimonials.length > 0 && <Testimonials />}
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-dark-400 text-gray-100 overflow-hidden">
+      <NetworkAnimation />
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          {testimonials && testimonials.length > 0 && <Testimonials />}
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
