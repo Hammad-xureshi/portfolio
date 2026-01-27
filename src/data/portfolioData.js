@@ -198,6 +198,18 @@ export const projects = [
     live: "",
     featured: true,
   },
+    {
+    id: 5,
+    title: "Smart Toll management System",
+    description:
+      "A complete offline Smart Toll Tax Management System built with Python, featuring automatic license plate recognition, and comprehensive toll management with MariaDB database backend",
+    image: "/images/projects/toll.png",
+    tags: ["Python", "MTAG", "DBS", "OCR", "SMART"],
+    category: "Computer Vision",
+    github: "https://github.com/Hammad-xureshi/Smart-Toll-Management-System",
+    live: "",
+    featured: true,
+  },
 ];
 
 export const projectCategories = [
