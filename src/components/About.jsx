@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { aboutMe, images, personalInfo } from '../data/portfolioData';
 
 export default function About() {
-  const { darkMode } = useTheme();
+  const { darkMode, themeMode } = useTheme();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -71,8 +71,10 @@ export default function About() {
                       e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face';
                     }}
                   />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-600/30 via-transparent to-transparent" />
+                  {/* Gradient Overlay - Hide in hacker mode */}
+                  {themeMode !== 'hacker' && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-600/30 via-transparent to-transparent" />
+                  )}
                 </motion.div>
 
                 {/* Decorative Border */}

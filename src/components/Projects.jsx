@@ -9,7 +9,7 @@ import { useTheme } from '../context/ThemeContext';
 import { projects, projectCategories, socialLinks } from '../data/portfolioData';
 
 export default function Projects() {
-  const { darkMode } = useTheme();
+  const { darkMode, themeMode } = useTheme();
   const [activeCategory, setActiveCategory] = useState('all');
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -49,24 +49,22 @@ export default function Projects() {
               <span className="text-gradient">Projects</span>
             </h2>
             <p
-              className={`max-w-2xl mx-auto ${
-                darkMode ? 'text-gray-400' : 'text-gray-600'
-              }`}
+              className={`max-w-2xl mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}
             >
               Projects that showcase my skills in Python, AI, and Cyber Security.
             </p>
           </motion.div>
 
           {/* Projects Grid - Responsive based on number of projects */}
-          <motion.div 
-            layout 
-            className={`grid gap-4 md:gap-6 lg:gap-8 ${
-  filteredProjects.length === 1 
-    ? 'grid-cols-1 max-w-xl mx-auto' 
-    : filteredProjects.length === 2 
-    ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto' 
-    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-}`}
+          <motion.div
+            layout
+            className={`grid gap-4 md:gap-6 lg:gap-8 ${filteredProjects.length === 1
+              ? 'grid-cols-1 max-w-xl mx-auto'
+              : filteredProjects.length === 2
+                ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto'
+                : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+              }`}
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
@@ -76,13 +74,13 @@ export default function Projects() {
                   initial={{ opacity: 0, scale: 0.9, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
                   whileHover={{ y: -10 }}
-                  className={`group relative rounded-2xl overflow-hidden ${
-                    darkMode
-                      ? 'bg-dark-100 border border-dark-100 hover:border-primary-500/30'
-                      : 'bg-white shadow-lg hover:shadow-2xl'
-                  } transition-all duration-500`}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className={`group relative rounded-2xl overflow-hidden ${darkMode
+                    ? 'bg-dark-100 border border-dark-100 hover:border-primary-500/30'
+                    : 'bg-white shadow-lg hover:shadow-2xl'
+                    } transition-all duration-500`}
+                  style={{ animationDelay: `${index * 0.5}s` }}
                 >
                   {/* Project Image */}
                   <div className="relative overflow-hidden aspect-video">
@@ -97,25 +95,26 @@ export default function Projects() {
                         e.target.src = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop';
                       }}
                     />
-                    
-                    {/* Overlay */}
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-300 ${
-                        darkMode
+
+                    {/* Overlay - Hide in hacker mode */}
+                    {themeMode !== 'hacker' && (
+                      <div
+                        className={`absolute inset-0 transition-opacity duration-300 ${darkMode
                           ? 'bg-gradient-to-t from-dark-100 via-dark-100/50 to-transparent'
                           : 'bg-gradient-to-t from-black/70 via-black/30 to-transparent'
-                      } opacity-60 group-hover:opacity-90`}
-                    />
+                          } opacity-60 group-hover:opacity-90`}
+                      />
+                    )}
 
                     {/* Featured Badge */}
                     {project.featured && (
-                      <motion.div 
+                      <motion.div
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.3 }}
                         className="absolute top-4 left-4"
                       >
-                        <span className="px-3 py-1.5 bg-gradient-to-r from-primary-500 to-purple-500 text-white text-xs font-semibold rounded-full shadow-lg">
+                        <span className="px-3 py-1.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs font-semibold rounded-full shadow-lg">
                           ⭐ Featured
                         </span>
                       </motion.div>
@@ -160,16 +159,14 @@ export default function Projects() {
                   {/* Project Info */}
                   <div className="p-6">
                     <h3
-                      className={`text-xl font-display font-bold mb-3 group-hover:text-primary-500 transition-colors ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                      }`}
+                      className={`text-xl font-display font-bold mb-3 group-hover:text-primary-500 transition-colors ${darkMode ? 'text-white' : 'text-gray-900'
+                        }`}
                     >
                       {project.title}
                     </h3>
                     <p
-                      className={`text-sm mb-4 leading-relaxed ${
-                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                      }`}
+                      className={`text-sm mb-4 leading-relaxed ${darkMode ? 'text-gray-400' : 'text-gray-600'
+                        }`}
                     >
                       {project.description}
                     </p>
@@ -179,11 +176,10 @@ export default function Projects() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`px-3 py-1 text-xs font-medium rounded-full transition-colors ${
-                            darkMode
-                              ? 'bg-primary-500/10 text-primary-400 border border-primary-500/20'
-                              : 'bg-primary-50 text-primary-600 border border-primary-100'
-                          }`}
+                          className={`px-3 py-1 text-xs font-medium rounded-full transition-colors ${darkMode
+                            ? 'bg-primary-500/10 text-primary-400 border border-primary-500/20'
+                            : 'bg-primary-50 text-primary-600 border border-primary-100'
+                            }`}
                         >
                           {tag}
                         </span>

@@ -1,0 +1,159 @@
+# 🎯 CTF Challenges Update Guide
+
+Is file mein bataya gaya hai kaise aap apne portfolio mein CTF challenges add ya update kar sakte hain.
+
+---
+
+## 📁 File Location
+
+**File:** `src/data/ctfData.js`
+
+Ye file open karein aur niche diye gaye format mein apna challenge add karein.
+
+---
+
+## 🖼️ Images Kaise Add Karein
+
+1. **Images Folder:** `public/images/ctf/`
+2. Apni challenge ki screenshots is folder mein rakhain
+3. Image ka naam yaad rakhain (e.g., `kenobi-1.png`)
+
+---
+
+## 📝 Challenge Add Karne Ka Tareeka
+
+### Multiple Images Format (Recommended):
+
+```javascript
+{
+  id: 2,
+  title: "Challenge Ka Naam",           // Challenge ka title
+  category: "Web Exploitation",         // Category: Web, Priv Esc, Crypto, Forensics, etc
+  difficulty: "Easy",                   // Easy | Medium | Hard | Insane
+  platform: "TryHackMe",                // TryHackMe | HackTheBox | CTFtime
+  tags: ["Tag1", "Tag2", "Tag3"],       // Max 3-4 tags
+  images: [
+    "/images/ctf/photo1.png",           // Photo 1
+    "/images/ctf/photo2.png",           // Photo 2
+    "/images/ctf/photo3.png"            // Photo 3
+  ],
+  completedDate: "2024-01-20",          // Format: YYYY-MM-DD
+  description: "Is challenge mein aapne kya sikhya aur kaise kiya. Thodi si lambi description likhein.",
+  walkthroughEnabled: true,             // true = walkthrough dikhega, false = nahi
+  walkthrough: {
+    steps: [
+      {
+        title: "Step 1: Reconnaissance",    // Step ka title
+        description: "Kya kiya step mein",  // Step ka description
+        code: "nmap -sV 10.10.10.10"        // Command ya code
+      },
+      {
+        title: "Step 2: Exploitation",
+        description: "Kaise kiya exploitation",
+        code: "exploit command here"
+      }
+    ],
+    tools: ["nmap", "gobuster", "burp"],    // Tools jo use kiye
+    learnings: ["Lesson 1", "Lesson 2"]      // Kya sikhya
+  }
+},
+```
+
+### Single Image Format:
+
+```javascript
+{
+  id: 3,
+  title: "Simple Challenge",
+  category: "Cryptography",
+  difficulty: "Medium",
+  platform: "HackTheBox",
+  tags: ["Crypto", "RSA"],
+  image: "/images/ctf/my-challenge.png",    // Single image
+  completedDate: "2024-02-15",
+  description: "Challenge ka short description.",
+  walkthroughEnabled: false,
+  walkthrough: null
+},
+```
+
+---
+
+## 🔧 Available Options
+
+| Field | Options |
+|-------|---------|
+| **Category** | Web Exploitation, Privilege Escalation, Binary Exploitation, Reverse Engineering, Cryptography, Forensics, OSINT, Network Security |
+| **Difficulty** | Easy, Medium, Hard, Insane |
+| **Platform** | TryHackMe, HackTheBox, CTFtime |
+
+---
+
+## 📋 Example Challenge (Kenobi):
+
+```javascript
+{
+  id: 1,
+  title: "Kenobi - SUID Privilege Escalation",
+  category: "Privilege Escalation",
+  difficulty: "Easy",
+  platform: "TryHackMe",
+  tags: ["Samba", "ProFTPD", "Path Manipulation", "SUID"],
+  images: [
+    "/images/ctf/kenobi-1.png",
+    "/images/ctf/kenobi-2.png",
+    "/images/ctf/kenobi-3.png"
+  ],
+  completedDate: "2024-01-20",
+  description: "Exploiting misconfigured Samba shares and leveraging SUID binaries for privilege escalation.",
+  walkthroughEnabled: true,
+  walkthrough: {
+    steps: [
+      {
+        title: "Reconnaissance & Port Scanning",
+        description: "Start with comprehensive nmap scan to identify open ports.",
+        code: "nmap -sV -sC -oN nmap_scan.txt 10.10.10.10"
+      },
+      {
+        title: "SMB Enumeration",
+        description: "Enumerate Samba shares to find accessible directories.",
+        code: "smbclient -L //10.10.10.10"
+      }
+    ],
+    tools: ["nmap", "smbclient", "netcat", "ssh"],
+    learnings: [
+      "Always enumerate SMB shares thoroughly",
+      "Check for SUID binaries during privilege escalation"
+    ]
+  }
+},
+```
+
+---
+
+## ⚠️ Important Notes
+
+1. **ID Unique Hona Chahiye:** Har challenge ki unique id ho
+2. **Date Format:** YYYY-MM-DD (e.g., 2024-01-20)
+3. **Images Path:** `public/images/ctf/` folder mein honi chahiye
+4. **Comma Dhyan Se:** Last item ke baad comma nahi, baaki sabke baad comma
+
+---
+
+## 🚀 Changes Save Karne Ke Baad
+
+1. File save karein
+2. Terminal mein `npm run dev` chalaen
+3. Browser mein `http://localhost:5174` open karein
+4. Changes auto reflect honge
+
+---
+
+## 📞 Help
+
+Agar koi problem ho to GitHub issues open kar sakte hain ya DM kar sakte hain.
+
+---
+
+**Happy Hacking! 🔐**
+

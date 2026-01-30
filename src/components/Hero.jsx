@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { personalInfo, socialLinks, images } from '../data/portfolioData';
 
 export default function Hero() {
-  const { darkMode } = useTheme();
+  const { darkMode, themeMode } = useTheme();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,20 +73,22 @@ export default function Hero() {
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 className="absolute -inset-2 md:-inset-4 rounded-full"
                 style={{
-                  background: 'conic-gradient(from 0deg, #a855f7, #ec4899, #06b6d4, #a855f7)',
+                  background: themeMode === 'hacker' 
+                    ? 'conic-gradient(from 0deg, #cc0000, #8b0000, #ff0000, #cc0000)'
+                    : 'conic-gradient(from 0deg, #a855f7, #ec4899, #06b6d4, #a855f7)',
                   padding: '2px',
                 }}
               >
                 <div className="w-full h-full rounded-full bg-dark-400" />
               </motion.div>
-              
+
               {/* Profile Image Container */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-2xl"
                 style={{
-                  boxShadow: '0 0 40px rgba(168, 85, 247, 0.3)',
+                  boxShadow: themeMode === 'hacker' ? '0 0 40px rgba(204, 0, 0, 0.5)' : '0 0 40px rgba(168, 85, 247, 0.3)',
                 }}
               >
                 <img
@@ -98,9 +100,11 @@ export default function Hero() {
                     e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face';
                   }}
                 />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-500/20 via-transparent to-cyan-500/10" />
+
+                {/* Gradient Overlay - Hide in hacker mode */}
+                {themeMode !== 'hacker' && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-500/20 via-transparent to-primary-600/10" />
+                )}
               </motion.div>
 
               {/* Floating Badge - Hidden on very small screens */}

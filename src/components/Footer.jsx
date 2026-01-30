@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import { personalInfo, socialLinks, navLinks } from '../data/portfolioData';
 
 export default function Footer() {
-  const { darkMode } = useTheme();
+  const { darkMode, themeMode } = useTheme();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="py-12 bg-dark-500 border-t border-white/5"
+      className={`py-12 border-t border-white/5 ${themeMode === 'hacker' ? 'bg-black' : 'bg-dark-500'}`}
     >
       <div className="container-custom px-4">
         <motion.div
@@ -78,11 +78,6 @@ export default function Footer() {
               {/* Copyright - Your Name */}
               <p className="text-sm text-gray-500">
                 © {currentYear} {personalInfo.name} — {personalInfo.tagline}
-              </p>
-
-              {/* Built with - Simple Text (No Heart) */}
-              <p className="text-sm text-gray-500">
-                Built with React & Tailwind CSS
               </p>
 
               {/* Back to Top */}

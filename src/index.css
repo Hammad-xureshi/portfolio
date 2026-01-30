@@ -10,19 +10,19 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-sans antialiased;
     background-color: #0a0a14;
   }
-  
+
   ::selection {
     @apply bg-primary-500/40 text-white;
   }
 }
 
 @layer components {
-  
+
   /* ==================== GRADIENT TEXT ==================== */
   .text-gradient {
     background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
@@ -30,14 +30,14 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .text-gradient-cyan {
     background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* ==================== ANIMATED GRADIENT TEXT ==================== */
   .text-gradient-animated {
     background: linear-gradient(90deg, #a855f7, #ec4899, #06b6d4, #a855f7);
@@ -47,7 +47,7 @@
     background-clip: text;
     animation: gradient 8s ease infinite;
   }
-  
+
   /* ==================== GLASS CARD ==================== */
   .glass-card {
     @apply relative overflow-hidden rounded-2xl;
@@ -57,7 +57,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
-  
+
   .glass-card::before {
     content: '';
     position: absolute;
@@ -67,19 +67,19 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
   }
-  
+
   .glass-card:hover {
     border-color: rgba(168, 85, 247, 0.3);
     box-shadow: 0 8px 32px 0 rgba(168, 85, 247, 0.15);
   }
-  
+
   /* ==================== GLOW CARD ==================== */
   .glow-card {
     @apply relative rounded-2xl overflow-hidden;
     background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
     border: 1px solid rgba(168, 85, 247, 0.2);
   }
-  
+
   .glow-card::before {
     content: '';
     position: absolute;
@@ -90,11 +90,11 @@
     opacity: 0;
     transition: opacity 0.5s ease;
   }
-  
+
   .glow-card:hover::before {
     opacity: 0.3;
   }
-  
+
   /* ==================== BUTTONS ==================== */
   .btn-primary {
     @apply px-6 py-3 rounded-xl font-semibold text-white relative overflow-hidden;
@@ -102,12 +102,12 @@
     box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
     transition: all 0.3s ease;
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(168, 85, 247, 0.6);
   }
-  
+
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -118,11 +118,11 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
   }
-  
+
   .btn-primary:hover::before {
     left: 100%;
   }
-  
+
   .btn-secondary {
     @apply px-6 py-3 rounded-xl font-semibold relative overflow-hidden;
     background: transparent;
@@ -130,89 +130,89 @@
     color: #a855f7;
     transition: all 0.3s ease;
   }
-  
+
   .btn-secondary:hover {
     background: rgba(168, 85, 247, 0.1);
     border-color: #a855f7;
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
     transform: translateY(-2px);
   }
-  
+
   .btn-glow {
     @apply px-6 py-3 rounded-xl font-semibold text-white;
     background: linear-gradient(135deg, #06b6d4 0%, #a855f7 100%);
     box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
     animation: glow 2s ease-in-out infinite alternate;
   }
-  
+
   /* ==================== SECTION STYLES ==================== */
   .section-padding {
     @apply py-20 md:py-28 px-4 md:px-8;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
-  
+
   /* ==================== CYBER BACKGROUND ==================== */
   .bg-cyber {
     background-color: #0a0a14;
-    background-image: 
+    background-image:
       radial-gradient(ellipse at 20% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
       radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
   }
-  
+
   .bg-cyber-dark {
     background-color: #08080f;
-    background-image: 
+    background-image:
       radial-gradient(ellipse at 30% 0%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
       radial-gradient(ellipse at 70% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
   }
-  
+
   .bg-cyber-grid {
     background-color: #0a0a14;
-    background-image: 
+    background-image:
       linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
   }
-  
+
   /* ==================== NEON EFFECTS ==================== */
   .neon-border {
     position: relative;
     border: 1px solid transparent;
     background: linear-gradient(#0a0a14, #0a0a14) padding-box,
-                linear-gradient(135deg, #a855f7, #06b6d4) border-box;
+      linear-gradient(135deg, #a855f7, #06b6d4) border-box;
   }
-  
+
   .neon-text {
     color: #a855f7;
-    text-shadow: 
+    text-shadow:
       0 0 5px rgba(168, 85, 247, 0.5),
       0 0 10px rgba(168, 85, 247, 0.3),
       0 0 20px rgba(168, 85, 247, 0.2);
   }
-  
+
   .neon-glow {
-    box-shadow: 
+    box-shadow:
       0 0 10px rgba(168, 85, 247, 0.3),
       0 0 20px rgba(168, 85, 247, 0.2),
       0 0 40px rgba(168, 85, 247, 0.1);
   }
-  
+
   /* ==================== SKILL BAR ==================== */
   .skill-bar {
     @apply h-2 rounded-full overflow-hidden;
     background: rgba(255, 255, 255, 0.1);
   }
-  
+
   .skill-bar-fill {
     @apply h-full rounded-full;
     background: linear-gradient(90deg, #a855f7, #06b6d4);
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   }
-  
+
   /* ==================== INPUT FIELDS ==================== */
   .input-cyber {
     @apply w-full px-4 py-4 rounded-xl outline-none transition-all duration-300;
@@ -220,47 +220,47 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
   }
-  
+
   .input-cyber:focus {
     border-color: rgba(168, 85, 247, 0.5);
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
     background: rgba(168, 85, 247, 0.05);
   }
-  
+
   .input-cyber::placeholder {
     color: rgba(255, 255, 255, 0.3);
   }
-  
+
   /* ==================== FLOATING ORBS ==================== */
   .orb {
     @apply absolute rounded-full blur-3xl;
     animation: float 10s ease-in-out infinite;
   }
-  
+
   .orb-purple {
     background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
   }
-  
+
   .orb-cyan {
     background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
   }
-  
+
   .orb-pink {
     background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
   }
-  
+
   /* ==================== TIMELINE ==================== */
   .timeline-line {
     @apply absolute w-0.5;
     background: linear-gradient(180deg, transparent 0%, #a855f7 10%, #06b6d4 90%, transparent 100%);
   }
-  
+
   .timeline-dot {
     @apply w-4 h-4 rounded-full;
     background: linear-gradient(135deg, #a855f7, #06b6d4);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
   }
-  
+
   /* ==================== TAG STYLES ==================== */
   .tag {
     @apply px-3 py-1 rounded-full text-xs font-medium;
@@ -268,13 +268,13 @@
     border: 1px solid rgba(168, 85, 247, 0.2);
     color: #c084fc;
   }
-  
+
   .tag-cyan {
     background: rgba(6, 182, 212, 0.1);
     border: 1px solid rgba(6, 182, 212, 0.2);
     color: #22d3ee;
   }
-  
+
   /* ==================== BADGE STYLES ==================== */
   .badge-glow {
     @apply px-4 py-2 rounded-full text-sm font-medium;
@@ -282,21 +282,21 @@
     border: 1px solid rgba(168, 85, 247, 0.3);
     color: #c084fc;
   }
-  
+
   /* ==================== SCROLLBAR ==================== */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: #0a0a14;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, #a855f7, #7c3aed);
     border-radius: 10px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #c084fc, #a855f7);
   }
@@ -304,29 +304,63 @@
 
 /* ==================== ANIMATIONS ==================== */
 @keyframes gradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
-  100% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 60px rgba(6, 182, 212, 0.4); }
+  0% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 60px rgba(6, 182, 212, 0.4);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  33% { transform: translateY(-20px) rotate(5deg); }
-  66% { transform: translateY(10px) rotate(-5deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+
+  66% {
+    transform: translateY(10px) rotate(-5deg);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -335,18 +369,20 @@
     display: none;
   }
 }
+
 /* ============================================================
    📱 MOBILE RESPONSIVENESS FIXES
    ============================================================ */
 
 /* Mobile Animation Fixes */
 @media (max-width: 768px) {
+
   /* Enable animations on mobile */
   .orb {
     display: block !important;
     opacity: 0.3;
   }
-  
+
   /* Reduce orb sizes on mobile */
   .orb-purple,
   .orb-cyan,
@@ -354,30 +390,30 @@
     width: 200px !important;
     height: 200px !important;
   }
-  
+
   /* Fix profile image on mobile */
   .profile-image-container {
     width: 200px !important;
     height: 200px !important;
   }
-  
+
   /* Improve text readability */
   .text-gradient,
   .text-gradient-animated {
     background-size: 200% 200%;
   }
-  
+
   /* Fix glass card on mobile */
   .glass-card {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-  
+
   /* Reduce padding on mobile */
   .section-padding {
     @apply py-12 px-4;
   }
-  
+
   /* Fix button sizes */
   .btn-primary,
   .btn-secondary {
@@ -387,26 +423,27 @@
 
 /* Small Mobile (iPhone SE, etc.) */
 @media (max-width: 480px) {
+
   /* Smaller profile image */
   .profile-image-container {
     width: 180px !important;
     height: 180px !important;
   }
-  
+
   /* Smaller headings */
   h1 {
     font-size: 2rem !important;
   }
-  
+
   h2 {
     font-size: 1.5rem !important;
   }
-  
+
   /* Stack buttons vertically */
   .flex-col-mobile {
     flex-direction: column !important;
   }
-  
+
   /* Full width buttons on small screens */
   .btn-primary,
   .btn-secondary {
@@ -427,7 +464,7 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.08);
   }
-  
+
   .bg-cyber,
   .bg-cyber-dark {
     background-attachment: scroll;
@@ -436,6 +473,7 @@
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -443,7 +481,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .orb {
     animation: none !important;
   }
@@ -457,15 +495,827 @@ img {
 }
 
 /* Prevent horizontal scroll */
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
 }
 
 /* Fix touch targets for mobile */
 @media (max-width: 768px) {
-  a, button {
+
+  a,
+  button {
     min-height: 44px;
     min-width: 44px;
   }
+}
+
+/* ============================================================
+   🔴 HACKER THEME - Pure Red/Black Cybersecurity Aesthetic
+   ============================================================ */
+
+.hacker-theme {
+  /* Pure Red/Black Color Palette */
+  --hacker-red: #cc0000;
+  --hacker-bright-red: #ff0000;
+  --hacker-dark-red: #8b0000;
+  --hacker-blood: #b22222;
+  --hacker-crimson: #dc143c;
+  --hacker-black: #0a0000;
+  --hacker-deep-black: #000000;
+  --hacker-gray: #1a1a1a;
+  --hacker-light-gray: #4a4a4a;
+}
+
+/* Hacker Theme Background */
+.hacker-theme .bg-cyber {
+  background-color: #000000;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(204, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 0, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(178, 34, 34, 0.06) 0%, transparent 50%);
+}
+
+.hacker-theme .bg-cyber-dark {
+  background-color: #000000;
+  background-image:
+    radial-gradient(ellipse at 30% 0%, rgba(204, 0, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 100%, rgba(139, 0, 0, 0.04) 0%, transparent 50%);
+}
+
+.hacker-theme .bg-cyber-grid {
+  background-color: #000000;
+  background-image:
+    linear-gradient(rgba(204, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.hacker-theme .bg-dark-400 {
+  background-color: #000000 !important;
+}
+
+.hacker-theme .bg-dark-200 {
+  background-color: #0a0000 !important;
+}
+
+.hacker-theme .bg-dark-100 {
+  background-color: #050000 !important;
+}
+
+.hacker-theme .bg-gray-50 {
+  background-color: #1a1a1a !important;
+}
+
+/* Glass Card Hacker Theme */
+.hacker-theme .glass-card {
+  background: rgba(204, 0, 0, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(204, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.hacker-theme .glass-card::before {
+  background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.3), transparent);
+}
+
+.hacker-theme .glass-card:hover {
+  border-color: rgba(204, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(204, 0, 0, 0.15);
+}
+
+/* Gradient Text Hacker Theme - Pure Red Tones Only */
+.hacker-theme .text-gradient {
+  background: linear-gradient(135deg, #cc0000 0%, #b22222 50%, #8b0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hacker-theme .text-gradient-cyan {
+  background: linear-gradient(135deg, #b22222 0%, #cc0000 50%, #8b0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hacker-theme .text-gradient-animated {
+  background: linear-gradient(90deg, #cc0000, #b22222, #8b0000, #cc0000);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 8s ease infinite;
+}
+
+/* Buttons Hacker Theme */
+.hacker-theme .btn-primary {
+  background: linear-gradient(135deg, #b22222 0%, #8b0000 100%);
+  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.3);
+  color: #ffffff !important;
+}
+
+.hacker-theme .btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(204, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.hacker-theme .btn-secondary {
+  border: 2px solid rgba(204, 0, 0, 0.5);
+  color: #cc0000;
+}
+
+.hacker-theme .btn-secondary:hover {
+  background: rgba(204, 0, 0, 0.1);
+  border-color: #cc0000;
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+}
+
+.hacker-theme .btn-glow {
+  background: linear-gradient(135deg, #b22222 0%, #8b0000 100%);
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+}
+
+/* Neon Effects Hacker Theme */
+.hacker-theme .neon-border {
+  background: linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(135deg, #cc0000, #8b0000) border-box;
+}
+
+.hacker-theme .neon-text {
+  color: #cc0000;
+  text-shadow:
+    0 0 5px rgba(204, 0, 0, 0.4),
+    0 0 10px rgba(204, 0, 0, 0.2),
+    0 0 20px rgba(204, 0, 0, 0.1);
+}
+
+.hacker-theme .neon-glow {
+  box-shadow:
+    0 0 10px rgba(204, 0, 0, 0.2),
+    0 0 20px rgba(204, 0, 0, 0.15),
+    0 0 40px rgba(204, 0, 0, 0.1);
+}
+
+/* Skill Bar Hacker Theme */
+.hacker-theme .skill-bar-fill {
+  background: linear-gradient(90deg, #cc0000, #8b0000);
+  box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
+}
+
+/* Input Fields Hacker Theme */
+.hacker-theme .input-cyber {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(204, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.hacker-theme .input-cyber:focus {
+  border-color: rgba(204, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.2);
+  background: rgba(204, 0, 0, 0.05);
+}
+
+.hacker-theme .input-cyber::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Timeline Hacker Theme */
+.hacker-theme .timeline-line {
+  background: linear-gradient(180deg, transparent 0%, #cc0000 10%, #8b0000 90%, transparent 100%);
+}
+
+.hacker-theme .timeline-dot {
+  background: linear-gradient(135deg, #cc0000, #8b0000);
+  box-shadow: 0 0 15px rgba(204, 0, 0, 0.5);
+}
+
+/* Tags Hacker Theme */
+.hacker-theme .tag {
+  background: rgba(204, 0, 0, 0.1);
+  border: 1px solid rgba(204, 0, 0, 0.2);
+  color: #cc0000;
+}
+
+.hacker-theme .tag-cyan {
+  background: rgba(178, 34, 34, 0.1);
+  border: 1px solid rgba(178, 34, 34, 0.2);
+  color: #b22222;
+}
+
+/* Badge Hacker Theme */
+.hacker-theme .badge-glow {
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.15), rgba(139, 0, 0, 0.1));
+  border: 1px solid rgba(204, 0, 0, 0.3);
+  color: #cc0000;
+}
+
+/* Scrollbar Hacker Theme */
+.hacker-theme ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.hacker-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cc0000, #8b0000);
+  border-radius: 10px;
+}
+
+.hacker-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff0000, #cc0000);
+}
+
+/* Floating Orbs Hacker Theme - Pure Red Only */
+.hacker-theme .orb-purple {
+  background: radial-gradient(circle, rgba(204, 0, 0, 0.2) 0%, transparent 70%);
+}
+
+.hacker-theme .orb-cyan {
+  background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, transparent 70%);
+}
+
+.hacker-theme .orb-pink {
+  background: radial-gradient(circle, rgba(178, 34, 34, 0.15) 0%, transparent 70%);
+}
+
+/* Glow Card Hacker Theme */
+.hacker-theme .glow-card {
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.08) 0%, rgba(139, 0, 0, 0.04) 100%);
+  border: 1px solid rgba(204, 0, 0, 0.15);
+}
+
+.hacker-theme .glow-card::before {
+  background: linear-gradient(135deg, #cc0000, #b22222, #8b0000);
+}
+
+/* Terminal Style Text */
+.terminal-text {
+  font-family: 'Courier New', 'Monaco', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.hacker-theme .terminal-text {
+  color: #cc0000;
+  text-shadow: 0 0 5px rgba(204, 0, 0, 0.4);
+}
+
+/* Hacker Glow Effect */
+.hacker-glow {
+  box-shadow:
+    0 0 10px rgba(204, 0, 0, 0.3),
+    0 0 20px rgba(204, 0, 0, 0.2),
+    0 0 40px rgba(204, 0, 0, 0.1);
+}
+
+/* Text Colors - Pure Red Palette */
+.hacker-theme .text-primary-400 {
+  color: #cc0000 !important;
+}
+
+.hacker-theme .text-primary-500 {
+  color: #b22222 !important;
+}
+
+.hacker-theme .text-cyan-400,
+.hacker-theme .text-cyan-500 {
+  color: #8b0000 !important;
+}
+
+.hacker-theme .text-white {
+  color: #e0e0e0 !important;
+}
+
+.hacker-theme .text-gray-100 {
+  color: #d0d0d0 !important;
+}
+
+.hacker-theme .text-gray-300 {
+  color: #a0a0a0 !important;
+}
+
+.hacker-theme .text-gray-400 {
+  color: #808080 !important;
+}
+
+.hacker-theme .text-gray-500 {
+  color: #606060 !important;
+}
+
+.hacker-theme .text-gray-600 {
+  color: #505050 !important;
+}
+
+.hacker-theme .text-gray-700 {
+  color: #404040 !important;
+}
+
+.hacker-theme .text-gray-900 {
+  color: #e0e0e0 !important;
+}
+
+/* Border Colors */
+.hacker-theme .border-primary-500\/20 {
+  border-color: rgba(204, 0, 0, 0.2) !important;
+}
+
+.hacker-theme .border-primary-500\/30 {
+  border-color: rgba(204, 0, 0, 0.3) !important;
+}
+
+.hacker-theme .border-dark-100 {
+  border-color: rgba(204, 0, 0, 0.1) !important;
+}
+
+.hacker-theme .border-white\/5 {
+  border-color: rgba(204, 0, 0, 0.05) !important;
+}
+
+/* Hover States */
+.hacker-theme .hover\:text-primary-400:hover {
+  color: #cc0000 !important;
+}
+
+.hacker-theme .hover\:text-cyan-400:hover {
+  color: #8b0000 !important;
+}
+
+.hacker-theme .hover\:text-white:hover {
+  color: #e0e0e0 !important;
+}
+
+.hacker-theme .hover\:border-primary-500\/30:hover {
+  border-color: rgba(204, 0, 0, 0.3) !important;
+}
+
+/* Hacker Theme Animations - Red Glow */
+@keyframes hacker-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 40px rgba(204, 0, 0, 0.6), 0 0 60px rgba(139, 0, 0, 0.3);
+  }
+}
+
+.hacker-theme .animate-glow {
+  animation: hacker-glow 2s ease-in-out infinite alternate;
+}
+
+/* Section Background Colors */
+.hacker-theme .bg-primary-500\/10 {
+  background-color: rgba(204, 0, 0, 0.08) !important;
+}
+
+.hacker-theme .bg-primary-500\/20 {
+  background-color: rgba(204, 0, 0, 0.15) !important;
+}
+
+.hacker-theme .bg-primary-50 {
+  background-color: rgba(204, 0, 0, 0.05) !important;
+}
+
+.hacker-theme .bg-primary-100 {
+  background-color: rgba(204, 0, 0, 0.1) !important;
+}
+
+/* Shadow Effects - Pure Red */
+.hacker-theme .shadow-lg {
+  box-shadow: 0 10px 30px rgba(204, 0, 0, 0.1) !important;
+}
+
+.hacker-theme .shadow-2xl {
+  box-shadow: 0 25px 50px rgba(204, 0, 0, 0.15) !important;
+}
+
+/* Selection Color */
+.hacker-theme ::selection {
+  background-color: rgba(204, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Link Colors */
+.hacker-theme a {
+  color: #cc0000;
+}
+
+.hacker-theme a:hover {
+  color: #ff0000;
+}
+
+/* ============================================================
+   🔴 ADDITIONAL HACKER THEME OVERRIDES - Remove ALL Color Pollution
+   ============================================================ */
+
+/* Override viewport glow/shadow to pure black */
+.hacker-theme body {
+  background-color: #000000 !important;
+}
+
+.hacker-theme #root {
+  background-color: #000000 !important;
+}
+
+/* Remove blue viewport glow */
+.hacker-theme .min-h-screen {
+  box-shadow: none !important;
+}
+
+/* Override any remaining gradients to red */
+.hacker-theme [class*="from-purple"],
+.hacker-theme [class*="to-purple"],
+.hacker-theme [class*="from-cyan"],
+.hacker-theme [class*="to-cyan"],
+.hacker-theme [class*="from-pink"],
+.hacker-theme [class*="to-pink"] {
+  background: linear-gradient(135deg, #cc0000, #8b0000) !important;
+}
+
+/* Profile image border - pure red (only for specific elements) */
+.hacker-theme .profile-image-container,
+.hacker-theme .profile-image-wrapper {
+  border-color: #cc0000 !important;
+}
+
+/* ============================================================
+   🔴 HACKER THEME - PREVENT RED TINT ON IMAGES
+   ============================================================ */
+
+/* Kill ALL gradient overlays on images in hacker mode */
+.hacker-theme [class*="gradient-to-t"],
+.hacker-theme [class*="gradient-to-b"],
+.hacker-theme [class*="gradient-to-r"],
+.hacker-theme [class*="gradient-to-l"],
+.hacker-theme [class*="bg-gradient"] {
+  background-image: none !important;
+}
+
+/* Prevent red gradient overlay on profile images */
+.hacker-theme .anti-gravity img,
+.hacker-theme .profile-image-container img,
+.hacker-theme [class*="profile"] img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Remove all absolute positioned gradient overlays on images */
+.hacker-theme .aspect-video > div:not([class*="absolute"]),
+.hacker-theme .relative > img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Ensure all images stay natural in hacker theme */
+.hacker-theme img {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Fix profile images in Hero */
+.hacker-theme #home img,
+.hacker-theme [id="home"] img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Fix About section image */
+.hacker-theme #about img,
+.hacker-theme [id="about"] img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Fix project images - prevent red tint */
+.hacker-theme #projects img,
+.hacker-theme [id="projects"] img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Fix CTF images */
+.hacker-theme #ctf img,
+.hacker-theme [id="ctf"] img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Remove red glow from image containers */
+.hacker-theme .aspect-video {
+  box-shadow: none !important;
+}
+
+/* Fix progress screenshot images */
+.hacker-theme [class*="progress"] img,
+.hacker-theme [class*="tryhackme"] img,
+.hacker-theme [class*="ctf"] img {
+  filter: saturate(100%) brightness(100%) contrast(100%) !important;
+}
+
+/* Force remove gradient overlays in hacker theme */
+.hacker-theme .absolute.inset-0,
+.hacker-theme [class*="gradient-to-t"] {
+  display: none !important;
+}
+
+/* ============================================================
+   🔴 HACKER THEME - SKILLS SECTION FIX
+   ============================================================ */
+
+/* Fix skills icons - remove red tint */
+.hacker-theme #skills,
+.hacker-theme [id="skills"] {
+  background-color: #000000 !important;
+}
+
+/* Skills card backgrounds - dark red/black */
+.hacker-theme #skills .bg-dark-100,
+.hacker-theme #skills .bg-dark-200,
+.hacker-theme #skills .bg-dark-300,
+.hacker-theme [id="skills"] .bg-dark-100,
+.hacker-theme [id="skills"] .bg-dark-200,
+.hacker-theme [id="skills"] .bg-dark-300 {
+  background-color: #0a0000 !important;
+  border-color: rgba(204, 0, 0, 0.2) !important;
+}
+
+/* Skills cards hover effect - red border */
+.hacker-theme #skills .group:hover,
+.hacker-theme [id="skills"] .group:hover {
+  border-color: rgba(204, 0, 0, 0.5) !important;
+}
+
+/* Skills section text colors */
+.hacker-theme #skills .text-gray-300,
+.hacker-theme #skills .text-gray-400,
+.hacker-theme #skills .text-gray-500,
+.hacker-theme #skills .text-gray-600,
+.hacker-theme [id="skills"] .text-gray-300,
+.hacker-theme [id="skills"] .text-gray-400,
+.hacker-theme [id="skills"] .text-gray-500,
+.hacker-theme [id="skills"] .text-gray-600 {
+  color: #808080 !important;
+}
+
+/* Skills section white text */
+.hacker-theme #skills .text-white,
+.hacker-theme [id="skills"] .text-white {
+  color: #e0e0e0 !important;
+}
+
+/* Fix skill icon colors - use original colors in hacker theme */
+.hacker-theme #skills .w-10.h-10,
+.hacker-theme [id="skills"] .w-10.h-10 {
+  background-color: rgba(204, 0, 0, 0.1) !important;
+}
+
+/* Skills progress bar background */
+.hacker-theme #skills .bg-dark-200,
+.hacker-theme [id="skills"] .bg-dark-200 {
+  background-color: #1a0000 !important;
+}
+
+/* Other Skills tags - hacker theme */
+.hacker-theme #skills .bg-dark-100,
+.hacker-theme [id="skills"] .bg-dark-100 {
+  background-color: #0a0000 !important;
+  border-color: rgba(204, 0, 0, 0.2) !important;
+}
+
+/* Skills category title */
+.hacker-theme #skills .text-xl,
+.hacker-theme [id="skills"] .text-xl {
+  color: #cc0000 !important;
+}
+
+/* ============================================================
+   🔴 HACKER THEME - EXPERIENCE SECTION FIX
+   ============================================================ */
+
+/* Fix Experience section background */
+.hacker-theme #experience,
+.hacker-theme [id="experience"] {
+  background-color: #000000 !important;
+}
+
+/* Experience card backgrounds */
+.hacker-theme #experience .bg-dark-100,
+.hacker-theme #experience .bg-dark-200,
+.hacker-theme #experience .bg-dark-300,
+.hacker-theme #experience .bg-white,
+.hacker-theme [id="experience"] .bg-dark-100,
+.hacker-theme [id="experience"] .bg-dark-200,
+.hacker-theme [id="experience"] .bg-dark-300,
+.hacker-theme [id="experience"] .bg-white {
+  background-color: #0a0000 !important;
+  border-color: rgba(204, 0, 0, 0.2) !important;
+}
+
+/* Experience section text colors */
+.hacker-theme #experience .text-gray-400,
+.hacker-theme #experience .text-gray-500,
+.hacker-theme #experience .text-gray-600,
+.hacker-theme #experience .text-gray-700,
+.hacker-theme [id="experience"] .text-gray-400,
+.hacker-theme [id="experience"] .text-gray-500,
+.hacker-theme [id="experience"] .text-gray-600,
+.hacker-theme [id="experience"] .text-gray-700 {
+  color: #808080 !important;
+}
+
+/* Experience section white text */
+.hacker-theme #experience .text-white,
+.hacker-theme #experience .text-gray-900,
+.hacker-theme [id="experience"] .text-white,
+.hacker-theme [id="experience"] .text-gray-900 {
+  color: #e0e0e0 !important;
+}
+
+/* Experience timeline line */
+.hacker-theme #experience .bg-dark-100,
+.hacker-theme [id="experience"] .bg-dark-100 {
+  background-color: rgba(204, 0, 0, 0.3) !important;
+}
+
+/* Experience timeline line light */
+.hacker-theme #experience .bg-gray-200,
+.hacker-theme [id="experience"] .bg-gray-200 {
+  background-color: rgba(204, 0, 0, 0.3) !important;
+}
+
+/* Experience section description text */
+.hacker-theme #experience .text-gray-600,
+.hacker-theme [id="experience"] .text-gray-600 {
+  color: #a0a0a0 !important;
+}
+
+/* Experience period badge background */
+.hacker-theme #experience .bg-gray-50,
+.hacker-theme [id="experience"] .bg-gray-50 {
+  background-color: #0a0000 !important;
+}
+
+/* Certifications/Courses cards */
+.hacker-theme #experience .bg-white,
+.hacker-theme [id="experience"] .bg-white {
+  background-color: #0a0000 !important;
+  border-color: rgba(204, 0, 0, 0.2) !important;
+}
+
+/* Certifications text */
+.hacker-theme #experience .text-sm,
+.hacker-theme [id="experience"] .text-sm {
+  color: #a0a0a0 !important;
+}
+
+/* ============================================================
+   🔴 HACKER THEME - TESTIMONIALS SECTION FIX
+   ============================================================ */
+
+/* Fix Testimonials section background */
+.hacker-theme #testimonials,
+.hacker-theme [id="testimonials"] {
+  background-color: #000000 !important;
+}
+
+/* ============================================================
+   🔴 HACKER THEME - CONTACT SECTION FIX
+   ============================================================ */
+
+/* Fix Contact section background */
+.hacker-theme #contact,
+.hacker-theme [id="contact"] {
+  background-color: #000000 !important;
+}
+
+/* Contact glass card */
+.hacker-theme #contact .glass-card,
+.hacker-theme [id="contact"] .glass-card {
+  background: rgba(204, 0, 0, 0.03) !important;
+  border-color: rgba(204, 0, 0, 0.1) !important;
+}
+
+/* Contact section text colors */
+.hacker-theme #contact .text-gray-400,
+.hacker-theme #contact .text-gray-500,
+.hacker-theme #contact .text-gray-600,
+.hacker-theme [id="contact"] .text-gray-400,
+.hacker-theme [id="contact"] .text-gray-500,
+.hacker-theme [id="contact"] .text-gray-600 {
+  color: #808080 !important;
+}
+
+/* Override skill bar colors to red */
+.hacker-theme [class*="bg-blue"],
+.hacker-theme [class*="bg-green"],
+.hacker-theme [class*="bg-yellow"],
+.hacker-theme [class*="bg-purple"],
+.hacker-theme [class*="bg-cyan"] {
+  background: linear-gradient(90deg, #cc0000, #8b0000) !important;
+}
+
+/* Override icon circle backgrounds to dark red */
+.hacker-theme [class*="bg-purple-500"],
+.hacker-theme [class*="bg-cyan-500"],
+.hacker-theme [class*="bg-blue-500"] {
+  background-color: rgba(204, 0, 0, 0.1) !important;
+}
+
+/* Override any remaining purple/cyan text */
+.hacker-theme [class*="text-purple"],
+.hacker-theme [class*="text-cyan"],
+.hacker-theme [class*="text-pink"] {
+  color: #cc0000 !important;
+}
+
+/* Override border colors */
+.hacker-theme [class*="border-purple"],
+.hacker-theme [class*="border-cyan"],
+.hacker-theme [class*="border-pink"] {
+  border-color: rgba(204, 0, 0, 0.3) !important;
+}
+
+/* Override div gradients and motion divs*/
+.hacker-theme div[class*="from-cyan"],
+.hacker-theme div[class*="to-cyan"],
+.hacker-theme div[class*="from-purple"],
+.hacker-theme div[class*="to-purple"],
+.hacker-theme div[class*="from-pink"],
+.hacker-theme div[class*="to-pink"],
+.hacker-theme div[class*="from-green"],
+.hacker-theme div[class*="to-green"],
+.hacker-theme div[class*="to-teal"],
+.hacker-theme div[class*="from-teal"] {
+  background-image: linear-gradient(to bottom right, #cc0000, #8b0000) !important;
+}
+
+/* Ensure SVG icons use red */
+.hacker-theme svg {
+  color: inherit;
+}
+
+/* Override any persistent blue/cyan shadows */
+.hacker-theme * {
+  box-shadow-color: rgba(204, 0, 0, 0.5) !important;
+}
+
+/* Gradient backgrounds pure red - all directions */
+.hacker-theme .bg-gradient-to-r,
+.hacker-theme .bg-gradient-to-t,
+.hacker-theme .bg-gradient-to-b,
+.hacker-theme .bg-gradient-to-l,
+.hacker-theme .bg-gradient-to-br,
+.hacker-theme .bg-gradient-to-bl,
+.hacker-theme .bg-gradient-to-tr,
+.hacker-theme .bg-gradient-to-tl {
+  background-image: linear-gradient(var(--tw-gradient-direction, to right), #cc0000, #8b0000) !important;
+}
+
+/* ============================================================
+   🌌 ANTI-GRAVITY ANIMATION
+   ============================================================ */
+
+@keyframes antiGravity {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.anti-gravity {
+  animation: antiGravity 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Pause on hover and add red glow */
+.anti-gravity:hover {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6) !important;
+  /* Force red glow */
+  border-color: #ff0000 !important;
+  z-index: 10;
+}
+
+/* Staggered Delays */
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+
+.delay-2 {
+  animation-delay: 2s;
+}
+
+.delay-3 {
+  animation-delay: 3s;
+}
+
+.delay-4 {
+  animation-delay: 4s;
 }

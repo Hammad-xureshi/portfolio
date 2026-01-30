@@ -8,12 +8,12 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { darkMode, toggleDarkMode } = useTheme();
+  const { darkMode, toggleDarkMode, themeMode, toggleHackerMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       const sections = navLinks.map(link => link.href.slice(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -45,11 +45,10 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass-card !rounded-none border-x-0 border-t-0'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'glass-card !rounded-none border-x-0 border-t-0'
+          : 'bg-transparent'
+          }`}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20 px-4">
@@ -78,11 +77,10 @@ export default function Navbar() {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                    activeSection === link.href.slice(1)
-                      ? 'text-primary-400'
-                      : 'text-gray-400 hover:text-white'
-                  }`}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors ${activeSection === link.href.slice(1)
+                    ? 'text-primary-400'
+                    : 'text-gray-400 hover:text-white'
+                    }`}
                   whileHover={{ y: -2 }}
                   whileTap={{ y: 0 }}
                 >
@@ -90,7 +88,7 @@ export default function Navbar() {
                   {activeSection === link.href.slice(1) && (
                     <motion.span
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-cyan-500"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -100,15 +98,42 @@ export default function Navbar() {
 
             {/* Right Side */}
             <div className="flex items-center space-x-4">
-              {/* Theme Toggle */}
+              {/* Dark/Light Mode Toggle */}
               <motion.button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-lg glass-card text-primary-400 hover:text-cyan-400"
                 whileHover={{ scale: 1.1, rotate: 180 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.3 }}
+                title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
                 {darkMode ? <HiSun size={20} /> : <HiMoon size={20} />}
+              </motion.button>
+
+              {/* Hacker Theme Toggle */}
+              <motion.button
+                onClick={toggleHackerMode}
+                className={`p-2 rounded-lg glass-card transition-colors ${themeMode === 'hacker'
+                  ? 'text-red-500 hover:text-red-400 hacker-glow'
+                  : 'text-primary-400 hover:text-cyan-400'
+                  }`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9, rotate: 15 }}
+                transition={{ duration: 0.3 }}
+                title={themeMode === 'hacker' ? "Switch to Default Theme" : "Switch to Hacker Theme"}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 17l6-6-6-6M12 19h8" />
+                </svg>
               </motion.button>
 
               {/* Mobile Menu Button */}
@@ -146,11 +171,10 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`block py-3 text-lg font-medium border-b border-white/5 ${
-                    activeSection === link.href.slice(1) 
-                      ? 'text-primary-400' 
-                      : 'text-gray-300 hover:text-primary-400'
-                  }`}
+                  className={`block py-3 text-lg font-medium border-b border-white/5 ${activeSection === link.href.slice(1)
+                    ? 'text-primary-400'
+                    : 'text-gray-300 hover:text-primary-400'
+                    }`}
                 >
                   {link.name}
                 </motion.a>

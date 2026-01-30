@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import { skillCategories, otherSkills } from '../data/portfolioData';
 
 export default function Skills() {
-  const { darkMode } = useTheme();
+  const { darkMode, themeMode } = useTheme();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -13,7 +13,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className={`section-padding ${darkMode ? 'bg-dark-300' : 'bg-gray-50'}`}
+      className={`section-padding ${darkMode ? 'bg-dark-200' : 'bg-gray-50'}`}
     >
       <div className="container-custom">
         <motion.div
@@ -46,9 +46,8 @@ export default function Skills() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: categoryIndex * 0.2, duration: 0.6 }}
               >
-                <h3 className={`text-xl font-display font-semibold mb-6 ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-xl font-display font-semibold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {category.title}
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
@@ -59,9 +58,8 @@ export default function Skills() {
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                       transition={{ delay: categoryIndex * 0.2 + skillIndex * 0.1, duration: 0.4 }}
                       whileHover={{ y: -8, scale: 1.02 }}
-                      className={`group relative p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
-                        darkMode ? 'bg-dark-100 hover:bg-dark-100/80' : 'bg-white hover:shadow-xl'
-                      }`}
+                      className={`group relative p-6 rounded-2xl cursor-pointer transition-all duration-300 ${darkMode ? 'bg-dark-100 hover:bg-dark-100/80' : 'bg-white hover:shadow-xl'
+                        }`}
                     >
                       <div className="flex flex-col items-center text-center">
                         <motion.div
@@ -76,9 +74,8 @@ export default function Skills() {
                         </h4>
 
                         {/* Progress Bar */}
-                        <div className={`w-full h-1.5 rounded-full overflow-hidden ${
-                          darkMode ? 'bg-dark-200' : 'bg-gray-100'
-                        }`}>
+                        <div className={`w-full h-1.5 rounded-full overflow-hidden ${darkMode ? 'bg-dark-200' : 'bg-gray-100'
+                          }`}>
                           <motion.div
                             initial={{ width: 0 }}
                             animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
@@ -122,11 +119,10 @@ export default function Skills() {
                   animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                   transition={{ delay: 0.9 + index * 0.05 }}
                   whileHover={{ scale: 1.1 }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium ${
-                    darkMode
-                      ? 'bg-dark-100 text-gray-300 hover:text-primary-400'
-                      : 'bg-white text-gray-600 hover:text-primary-600 shadow-sm'
-                  } transition-colors cursor-default`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium ${darkMode
+                    ? 'bg-dark-100 text-gray-300 hover:text-primary-400'
+                    : 'bg-white text-gray-600 hover:text-primary-600 shadow-sm'
+                    } transition-colors cursor-default`}
                 >
                   {tech}
                 </motion.span>
